@@ -1,0 +1,41 @@
+\tikzset{
+  state/.style={
+    rectangle, rounded corners, draw=black, thick,
+    minimum height=2em, minimum width=8em, inner sep=10pt,
+    text centered
+  }
+}
+
+\begin{tikzpicture}[>=latex, line width=0.75pt]
+  \begin{scope}
+    \node[state] (modelo1) {$x,y,z,r,\phi, x_{si},y_{si}$};
+    \node[below of=modelo1] {features};
+    \node (m1) [above right of=modelo1, node distance=3.5cm,
+      matrix of math nodes, left delimiter=[,right delimiter={]}]
+      {
+          x_0 &  y_0 &  z_0 & r_0 & \phi& x_{s0}& y_{s0}\\
+          x_0 &  y_0 &  z_0 & r_0 & \phi& x_{s1}& y_{s1}\\
+          \vdots &  \vdots &  \vdots & \vdots & \vdots & \vdots & \vdots\\
+          x_n &  y_n &  z_n & r_n & \phi& x_{s0}& y_{s0}\\
+          x_n &  y_n &  z_n & r_n & \phi& x_{s1}& y_{s1}\\
+          \vdots &  \vdots &  \vdots & \vdots & \vdots & \vdots & \vdots\\
+      };
+    \node (m2) [right of=m1, node distance=4.5cm,
+      matrix of math nodes, left delimiter=[,right delimiter={]}]
+      { 
+           NOP_{\text{evtpos},\text{SiPMID}} \\
+           NOP_{\text{evtpos},\text{SiPMID}} \\
+          \vdots \\
+           NOP_{\text{evtpos},\text{SiPMID}} \\
+           NOP_{\text{evtpos},\text{SiPMID}} \\
+          \vdots \\
+      };
+    \node (modelo2) [right of=m2, state, node distance=3.7cm]
+      (modelo2) {$NOP$};
+    \node[below of=modelo2] {output};
+    \path[->, shorten >=1em] (modelo1) edge[bend left=40] (m1.west);
+    \path[->] (m1.south) edge[bend right=20]
+      node [midway, below] {Model} (m2.south);
+    \path[<-, shorten >=1em] (modelo2) edge[bend right=30] (m2);
+  \end{scope}
+\end{tikzpicture}

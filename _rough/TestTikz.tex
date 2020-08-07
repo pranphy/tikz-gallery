@@ -1,0 +1,52 @@
+% Author : Prakash Gautam
+% Date   : 19-07-2020 00:10:58
+%
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{tikz-feynman}
+\usepackage{pgf}
+\usepackage{pgfplots}
+%\usetikzlibrary{axis}
+\usetikzlibrary{
+    backgrounds,
+    calc,
+    decorations.fractals,
+    decorations.pathmorphing,
+    decorations.pathreplacing,
+    decorations.shapes,
+    decorations.text,
+    decorations.markings,
+    fit,
+    math,
+    matrix,
+    mindmap,
+    positioning,
+    quotes,
+    shapes
+}
+%\usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows.meta,calligraphy,calc,math}
+
+\author{Prakash Gautam}
+\title{Practicing Ti{\em kZ} diagrams.}
+
+%\pgfplotsset{compat=1.16}
+\begin{document}
+    \maketitle
+    \section{Introduction}
+        We have some text and we have Kapindra in the house.
+        \begin{figure}[h!]
+            \centering
+            %\input{../tikz/annotatex_figure.tex}
+            %\input{../tikz/ml_overview.tex}
+            \input{/home/pranphy/.Rough/python/images/SineCurve.tex}
+            \caption{Name}
+            \label{fig:name}
+        \end{figure}
+    \section{Inline tikz}
+    Is this inline \tikz \draw[color=red,fill] (0,0) circle (4pt); and we continue this and we continue this. And a rectangle \tikz \draw[fill,color=black] (0,0) rectangle (.2,.2); is here
+\end{document}

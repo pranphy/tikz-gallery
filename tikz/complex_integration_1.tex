@@ -3,15 +3,42 @@
 %%% The homework assignment can be found here at
 %%% http://physics.drexel.edu/~pgautam/courses/
 \begin{tikzpicture}
+
     [
-    decoration={
-      markings,
-      mark=at position 1cm with {\arrow[line width=1pt]{>}},
-      mark=at position .3 with {\arrow[line width=1pt]{>}},
-      mark=at position .6 with {\arrow[line width=1pt]{>}},
-      mark=at position 0.8 with {\arrow[line width=1pt]{>}},
-      mark=at position -5mm with {\arrow[line width=1pt]{>}},
-    },
+    %decoration={
+    %  markings,
+    %  mark=at position 1cm with {\arrow[line width=1pt]{>}},
+    %  mark=at position .3 with {\arrow[line width=1pt]{>}},
+    %  mark=at position .6 with {\arrow[line width=1pt]{>}},
+    %  mark=at position 0.8 with {\arrow[line width=1pt]{>}},
+    %  mark=at position -5mm with {\arrow[line width=1pt]{>}},
+    %},
+     on each segment/.style={
+        decorate,
+        decoration={
+          show path construction,
+          moveto code={},
+          lineto code={
+            \path [#1] (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+          },
+          curveto code={
+            \path [#1] (\tikzinputsegmentfirst) .. controls
+            (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb) ..
+            (\tikzinputsegmentlast);
+          },
+          closepath code={
+            \path [#1]
+            (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+          },
+        },
+      },
+    mid arrow/.style={
+        postaction={decorate,
+          decoration={
+            markings, mark=at position .5 with {\arrow[#1]{stealth}}
+          }
+        }
+      },
     contourline/.style={line width=1.0pt},
     axisline/.style={->,line width=0.3pt},
     ]
@@ -19,7 +46,8 @@
     \draw [axisline] (-\X,0) -- (\X,0)  node [below right] {Re($z$)};
     \draw [axisline] (0,1.2*\r) -- (0,-\Y)  node[left] {Im($z$)};
     \node at (0,0) {$\times$};
-    \draw [contourline, postaction=decorate]
+    %\draw [contourline, postaction=decorate]
+    \draw [contourline, postaction=={on each segment={mid arrow=red}}]
         (\r,0) node [below, font=\scriptsize] {$\epsilon$} -- 
         (\R,0) node [above] {$R$} 
         arc (0:-180:\R) node [above] {$-R$} -- 
