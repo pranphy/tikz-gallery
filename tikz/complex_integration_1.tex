@@ -1,7 +1,9 @@
-%%% This diagram was made for my homework of Mathematical 
-%%% Physics at Drexel University during my Masters education
-%%% The homework assignment can be found here at
-%%% http://physics.drexel.edu/~pgautam/courses/
+%%T Complex integration path diagram.
+%%D This diagram was made for my homework of Mathematical
+%%D Physics at Drexel University during my Masters education
+%%D The homework assignment can be found here at
+%%D http://physics.drexel.edu/~pgautam/courses/
+%%G tikz, maths, complex, homework
 \begin{tikzpicture}
 
     [
@@ -48,10 +50,10 @@
     \node at (0,0) {$\times$};
     %\draw [contourline, postaction=decorate]
     \draw [contourline, postaction=={on each segment={mid arrow=red}}]
-        (\r,0) node [below, font=\scriptsize] {$\epsilon$} -- 
-        (\R,0) node [above] {$R$} 
-        arc (0:-180:\R) node [above] {$-R$} -- 
-        (-\r,0) node [below, font=\scriptsize] {$-\epsilon$} 
+        (\r,0) node [below, font=\scriptsize] {$\epsilon$} --
+        (\R,0) node [above] {$R$}
+        arc (0:-180:\R) node [above] {$-R$} --
+        (-\r,0) node [below, font=\scriptsize] {$-\epsilon$}
         arc (180:0:\r);
     \node at (\r,1.1*\r) {$\Gamma_{\varepsilon}$};
     \node at (1.15*\R*0.7,-1.15*\R*0.7) {$\Gamma_{R}$}; % 0.7 = sin(45) = cos(45)

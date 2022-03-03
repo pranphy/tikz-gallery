@@ -1,3 +1,9 @@
+%%T Complex integration path diagram.
+%%D This diagram was made for my homework of Mathematical
+%%D Physics at Drexel University during my Masters education
+%%D The homework assignment can be found here at
+%%D http://physics.drexel.edu/~pgautam/courses/
+%%G tikz, maths, complex, homework
 \begin{tikzpicture}
   [
     decoration={%
@@ -15,11 +21,11 @@
   \draw [axisline] (-4,0) -- (4,0) coordinate (xaxis) node [below,thick] {Re($z$)};
   \draw [axisline] (0,-0.6) -- (0,3.3) coordinate (yaxis) node [left,thick] {Im($z$)};
   \node at (0,0) {$\times$};
-  \draw [contourline, postaction=decorate] 
-      (.5,0) node [below, font=\scriptsize] {$\epsilon$} -- 
-      (3,0) node [below] {$R$} 
-      arc (0:180:3) node [below] {$-R$} -- 
-      (-.5,0) node [below, font=\scriptsize] {$-\epsilon$} 
+  \draw [contourline, postaction=decorate]
+      (.5,0) node [below, font=\scriptsize] {$\epsilon$} --
+      (3,0) node [below] {$R$}
+      arc (0:180:3) node [below] {$-R$} --
+      (-.5,0) node [below, font=\scriptsize] {$-\epsilon$}
       arc (180:0:.5);
   \node at (0.5,0.6) {$\Gamma_{\varepsilon}$};
   \node at (2,2.6) {$\Gamma_{R}$};

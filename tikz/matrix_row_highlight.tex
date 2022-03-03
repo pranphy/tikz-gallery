@@ -1,3 +1,8 @@
+%%T Annotate equation object
+%%D A helpful diagram to put in to annotate mathematical
+%%D objects especially in beamer, where you can flip diagram
+%%D and create a nice illustration.
+%%G tikz, matrix, beamer
 \begin{tikzpicture}
     \matrix (m) [matrix of math nodes,
         ampersand replacement=\&,
@@ -30,6 +35,5 @@
     \end{pgfonlayer}
     \draw[->,thick,red] (m-2-2.east) to [out=0,in=270] (j-2-2.south);
     \node[draw=orange,cloud,double,fill=orange!30,cloud puffs=19, aspect=1.7,above right=1pt of j.north]{Final};
-    %\draw[cloud, above=30pt of m,fill=red,opacity=0.4] {Hello there}; 
-    
+    %\draw[cloud, above=30pt of m,fill=red,opacity=0.4] {Hello there};
 \end{tikzpicture}
