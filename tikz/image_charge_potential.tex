@@ -1,0 +1,37 @@
+%%A 2021-01-12
+%%T Electric field of point image charge
+%%D This is a figure I used for my [homework at drexel](physics.drexel.edu/~pgautam/courses).
+%%D I drew it with very little knowledge of tikz at the time.
+%%G physics, tikz, charge, legendre
+\usetikzlibrary{calc,patterns,angles,quotes}
+\begin{tikzpicture}[
+    thick,
+    >=stealth,
+    dot/.style = {
+      draw,
+      fill = white,
+      circle,
+      inner sep = 0pt,
+      minimum size = 4pt
+    }
+  ]
+  \coordinate (O) at (0,0);
+  \coordinate (X)  at (5,0);
+  \coordinate (Y) at (0,4) ;
+  \coordinate (A) at (-4,0);
+  \coordinate (L) at (0,-1);
+  \coordinate (U) at (0,4);
+  \coordinate[label=above:P] (P) at (2,3);
+  \coordinate (B) at (4,0) {};
+  \draw [dotted] (O) to node [below] {$d$} (A);
+  \draw [dotted] (O) to node [below] {$d$} (B);
+  \draw [-] (O) to node [below, sloped] {$r $} (P);
+  \draw [dashed] (A) to node [sloped, above] {$r_2$} (P);
+  \draw [dashed] (B) to node [sloped, above] {$r_1$} (P);
+  % mirror 
+  \draw [-] (L) --  (U);
+  \fill[black] (A) circle (0.13) node [circle,above,left, label=$-q$] {};
+  \fill [black] (B) circle(0.13) node [circle, above,right, label=$q$] {};
+  %\fill [gray] (O) circle(0.19) node [circle, above,left,  label=$2q$] {};
+  \pic [draw, -, "$\theta$", angle eccentricity=1.5] {angle = B--O--P};
+\end{tikzpicture}
